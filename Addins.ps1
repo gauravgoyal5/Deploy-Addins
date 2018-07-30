@@ -77,7 +77,8 @@ Import-Csv $execPath\$appsFile -Encoding Default | Foreach-Object {
     try {
 
         write-host -ForegroundColor White "Getting info for app: $($_."Title")"
-        $app = Get-PnPApp | where { $_.Title -eq  $($_."Title")}
+        $appTitle = $($_."Title");
+        $app = Get-PnPApp | where { $_.Title -eq  $appTitle}
         write-host -ForegroundColor White "Completed"
 
         write-host -ForegroundColor White "Installing app"
